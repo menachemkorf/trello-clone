@@ -3,7 +3,7 @@
 In this overview I go through some of the parts of the Application that I found interesting from a developers view.
 ## Libraries
 
-- **Backbone** = for front-end code structure, it lets you easily modulerize your app based on different views that are bound to different pieces of data (models and collections).
+- **Backbone** = for front-end code structure, it lets you easily modularize your app based on different views that are bound to different pieces of data (models and collections).
 
 - **Handlebars** = templateing engine.
 
