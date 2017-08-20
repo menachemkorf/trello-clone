@@ -1,0 +1,29 @@
+<a class="card" href="#">
+{{#if labels}}
+  <ul class="labels list-unstyled list-inline">
+  {{#each labels}}
+    <li class="{{color}}"></li>
+  {{/each}}
+  </ul>
+{{/if}}
+  <p>{{card.title}}</p>
+  <div class="badges">
+  {{#if card.due}}
+    <div class="badge badge-due">
+      <i class="fa fa-clock-o"></i>
+      <span> {{format_date card.due}}</span>
+    </div>
+  {{/if}}
+  {{#if card.description}}
+    <div class="badge badge-description">
+      <i class="fa fa-align-justify"></i>
+    </div>
+  {{/if}}
+  {{#if card.comments}}
+    <div class="badge badge-comments">
+      <i class="fa fa-comment-o"></i>
+      <span> {{card.comments.length}}</span>
+    </div>
+  {{/if}}
+  </div>
+</a>

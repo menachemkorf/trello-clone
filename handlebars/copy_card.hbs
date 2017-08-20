@@ -1,0 +1,41 @@
+<header>
+  <div class="close">
+    <i class="fa fa-times"></i>
+  </div>
+  <p>Copy Card</p>
+</header>
+<form>
+  <fieldset>
+    <p>Title</p>
+    <textarea name="title" id="new_name">{{card.title}}</textarea>
+    <p>Keep...</p>
+    {{#if card.comments}}
+      <input type="checkbox" name="keep_comments" id="keep_comments" checked>
+      <label for="keep_comments">Comments ({{card.comments.length}})</label>
+    {{/if}}
+    {{#if card.labels}}
+      <input type="checkbox" name="keep_labels" id="keep_labels" checked>
+      <label for="keep_labels">Labels ({{card.labels.length}})</label>
+    {{/if}}
+  </fieldset>
+  <fieldset>
+    <select name="lists" id="lists">
+      {{#each lists}}
+        <option value="{{id}}"
+        {{#if selected}}
+          selected
+        {{/if}}
+        >{{title}}</option>
+      {{/each}}
+    </select>
+
+    <select name="positions" id="positions">
+      {{#each positions}}
+        <option value="{{.}}">position {{.}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+  <div class="actions">
+    <input type="submit" name="" class="btn btn-success" value="Create Card">
+  </div>
+</form>

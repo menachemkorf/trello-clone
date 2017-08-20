@@ -1,0 +1,998 @@
+@import "whitespace-reset.css";
+* {
+  box-sizing: border-box;
+}
+body {
+  font: normal 14px Helvetica, Arial, sans-serif;
+  background-color: #00aecc;
+  color: #f6f6f6;
+  min-height: 100vh;
+}
+body > header {
+  padding: 5px;
+  background-color: rgba(0,0,0,0.15);
+}
+body > header:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body > header .search {
+  float: left;
+  position: relative;
+}
+body > header .search dl input {
+  padding: 7px;
+  font: normal 14px "lato", sans-serif;
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+}
+body > header .search dl input:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+body > header .search dl dd {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}
+body > header .search .search-results {
+  position: absolute;
+  top: 35px;
+  width: 200px;
+  min-height: 114px;
+  padding: 7px;
+  border-radius: 3px;
+  background-color: #edeff0;
+  color: #4d4d4d;
+  z-index: 10;
+}
+body > header .search .search-results h2 {
+  padding: 0 0 10px 0;
+  color: #4d4d4d;
+}
+body > header .search .search-results li.card {
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 0 5px 0;
+}
+body > header .search .search-results li.card a.card {
+  position: relative;
+  display: block;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+}
+body > header .search .search-results li.card a.card .edit-card-title {
+  display: none;
+}
+body > header .search .search-results li.card a.card ul.labels {
+  white-space: normal;
+}
+body > header .search .search-results li.card a.card ul.labels li {
+  display: inline-block;
+  width: 40px;
+  height: 8px;
+  margin: 0 3px 5px 0;
+  border-radius: 3px;
+}
+body > header .search .search-results li.card a.card .badge {
+  display: inline-block;
+  padding: 8px 8px 0 0;
+  color: #a5a7a8;
+}
+body > header .search .search-results li.card a.card:hover {
+  color: inherit;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+body > header .search .search-results li.card a.card:hover .edit-card-title {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  margin: 2px;
+  color: #999;
+  border-radius: 3px;
+}
+body > header .search .search-results li.card a.card:hover .edit-card-title:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+body > header .actions {
+  float: right;
+}
+body > header .actions .btn-header {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  cursor: pointer;
+}
+body > header .actions .btn-header i {
+  padding: 7px 8px;
+  font-weight: 700;
+}
+body > header .actions .btn-header.active {
+  background-color: #c00;
+}
+body > header .actions .btn-header.active:hover {
+  background-color: #e60000;
+}
+body > header .actions .btn-header:hover {
+  background-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+body > header .actions .btn-header.notifications {
+  position: relative;
+}
+body > header .actions .btn-header.notifications .notifications-results {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 200px;
+  min-height: 114px;
+  padding: 7px;
+  border-radius: 3px;
+  background-color: #edeff0;
+  color: #4d4d4d;
+  z-index: 10;
+}
+body > header .actions .btn-header.notifications .notifications-results h2 {
+  padding: 0 0 10px 0;
+  color: #4d4d4d;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card {
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 0 5px 0;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card {
+  position: relative;
+  display: block;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card .edit-card-title {
+  display: none;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card ul.labels {
+  white-space: normal;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card ul.labels li {
+  display: inline-block;
+  width: 40px;
+  height: 8px;
+  margin: 0 3px 5px 0;
+  border-radius: 3px;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card .badge {
+  display: inline-block;
+  padding: 8px 8px 0 0;
+  color: #a5a7a8;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card:hover {
+  color: inherit;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card:hover .edit-card-title {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  margin: 2px;
+  color: #999;
+  border-radius: 3px;
+}
+body > header .actions .btn-header.notifications .notifications-results li.card a.card:hover .edit-card-title:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+main {
+  padding: 20px 10px;
+  white-space: nowrap;
+}
+main .col {
+  vertical-align: top;
+  display: inline-block;
+  width: 270px;
+  padding: 0;
+  margin: 0 5px;
+  background: #e2e4e6;
+  color: #4d4d4d;
+  border-radius: 5px;
+}
+main .col h2 {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+main .col > ul {
+  padding-bottom: 5px;
+}
+main .col > ul > li.card {
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+}
+main .col > ul > li.card a.card {
+  position: relative;
+  display: block;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+}
+main .col > ul > li.card a.card .edit-card-title {
+  display: none;
+}
+main .col > ul > li.card a.card ul.labels {
+  white-space: normal;
+}
+main .col > ul > li.card a.card ul.labels li {
+  display: inline-block;
+  width: 40px;
+  height: 8px;
+  margin: 0 3px 5px 0;
+  border-radius: 3px;
+}
+main .col > ul > li.card a.card .badge {
+  display: inline-block;
+  padding: 8px 8px 0 0;
+  color: #a5a7a8;
+}
+main .col > ul > li.card a.card:hover {
+  color: inherit;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+main .col > ul > li.card a.card:hover .edit-card-title {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  margin: 2px;
+  color: #999;
+  border-radius: 3px;
+}
+main .col > ul > li.card a.card:hover .edit-card-title:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+main .col > ul > li:last-child {
+  margin-bottom: 0;
+}
+main .col > ul > li.sortable-placeholder {
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #ccc;
+}
+main .col > ul > li.sortable-placeholder a.card {
+  position: relative;
+  display: block;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+}
+main .col > ul > li.sortable-placeholder a.card .edit-card-title {
+  display: none;
+}
+main .col > ul > li.sortable-placeholder a.card ul.labels {
+  white-space: normal;
+}
+main .col > ul > li.sortable-placeholder a.card ul.labels li {
+  display: inline-block;
+  width: 40px;
+  height: 8px;
+  margin: 0 3px 5px 0;
+  border-radius: 3px;
+}
+main .col > ul > li.sortable-placeholder a.card .badge {
+  display: inline-block;
+  padding: 8px 8px 0 0;
+  color: #a5a7a8;
+}
+main .col > ul > li.sortable-placeholder a.card:hover {
+  color: inherit;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+main .col > ul > li.sortable-placeholder a.card:hover .edit-card-title {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  margin: 2px;
+  color: #999;
+  border-radius: 3px;
+}
+main .col > ul > li.sortable-placeholder a.card:hover .edit-card-title:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+main .col > p a.add {
+  display: block;
+  padding: 10px;
+  color: #8c8c8c;
+  text-decoration: none;
+}
+main .col > p a.add:hover {
+  text-decoration: underline;
+  color: #4d4d4d;
+  background-color: #d4d7da;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+main .col > p form textarea {
+  width: 250px;
+  height: 54px;
+  resize: vertical;
+  margin: 0 10px 5px 10px;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+}
+main .col > p form textarea:focus {
+  border: none;
+  outline: none;
+}
+main .col > p form .actions {
+  padding: 0 0 10px 10px;
+  padding-top: 3px;
+}
+main .col > p form .actions .cancel {
+  display: inline-block;
+  margin-left: 10px;
+}
+main .col.add-list {
+  background: rgba(0,0,0,0.15);
+}
+main .col.add-list a.add {
+  display: block;
+  padding: 12px 10px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  text-decoration: none;
+}
+main .col.add-list a.add:hover {
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+.col.add-list form {
+  width: 100%;
+  padding: 3px;
+  background-color: #e2e4e6;
+  color: #8c8c8c;
+  border-radius: 3px;
+}
+.col.add-list form input[type="text"] {
+  width: 100%;
+  padding: 7px;
+  background: rgba(0,0,0,0.05);
+  border-color: #aaa;
+  border: 1px solid #cdd2d4;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 8px rgba(0,0,0,0.15);
+}
+.col.add-list form input[type="text"]:focus {
+  outline: none;
+}
+.col.add-list form .actions {
+  padding-top: 3px;
+}
+.col.add-list form .actions .cancel {
+  display: inline-block;
+  margin-left: 10px;
+}
+.btn-success {
+  padding: 5px 15px;
+  margin-bottom: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 #3f6f21;
+  border: none;
+  text-decoration: none;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  color: #fff;
+}
+.btn-success:disabled,
+.btn-success:disabled:hover {
+  background: none;
+  background-color: #e2e4e6;
+  box-shadow: none;
+  color: #8c8c8c;
+  cursor: default;
+  font-weight: 400;
+  border: none;
+}
+.btn-success:hover {
+  background: linear-gradient(to bottom, #54b042 0, #509a3d 100%);
+}
+.cancel {
+  color: #4d4d4d;
+  opacity: 0.5;
+}
+.cancel:hover {
+  opacity: 0.9;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+.overlay .quick-edit {
+  position: absolute;
+  width: 250px;
+}
+.overlay .quick-edit form {
+  width: 100%;
+}
+.overlay .quick-edit form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 7px;
+  border-radius: 3px;
+}
+.overlay .card-modal {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 650px;
+  margin-left: -325px;
+  background-color: #edeff0;
+  border-radius: 3px;
+  color: #a5a7a8;
+}
+.overlay .card-modal .close {
+  float: right;
+  padding-right: 3px;
+  cursor: pointer;
+}
+.overlay .card-modal .close:hover {
+  color: #8b8e8f;
+}
+.overlay .card-modal .card-modal-main {
+  width: 70%;
+  float: left;
+  padding: 10px;
+}
+.overlay .card-modal .card-modal-main section {
+  padding: 0 0 30px 30px;
+}
+.overlay .card-modal .card-modal-main section .icon-container {
+  position: absolute;
+  left: 10px;
+  font-size: 20px;
+}
+.overlay .card-modal textarea.title {
+  height: 30px;
+  width: 100%;
+  padding: 5px 3px;
+  margin-top: -5px;
+  margin-bottom: 15px;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  resize: none;
+  box-shadow: none;
+  color: #4d4d4d;
+  font-size: 18px;
+  font-weight: 700;
+}
+.overlay .card-modal textarea.title:focus {
+  background-color: rgba(255,255,255,0.9);
+  outline: none;
+}
+.overlay .card-modal h2 {
+  padding-bottom: 5px;
+  color: #4d4d4d;
+  font-size: 18px;
+  font-weight: 700;
+}
+.overlay .card-modal h3 {
+  padding: 0 0 5px 0;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 400;
+}
+.overlay .card-modal .labels-container {
+  float: left;
+  padding: 0 20px 0 0;
+}
+.overlay .card-modal .labels-container ul {
+  overflow: hidden;
+}
+.overlay .card-modal .labels-container ul li {
+  float: left;
+  padding: 0 5px 5px 0;
+}
+.overlay .card-modal .labels-container ul li a {
+  display: block;
+  min-height: 30px;
+  min-width: 40px;
+  padding: 8px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.overlay .card-modal .labels-container ul li a.add-label {
+  min-width: unset;
+  width: 30px;
+  background-color: #e2e4e6;
+  color: #8c8c8c;
+}
+.overlay .card-modal .labels-container ul li a.add-label:hover {
+  background-color: #d6dadc;
+  color: #4d4d4d;
+}
+.overlay .card-modal .due-date-container {
+  float: left;
+  position: relative;
+  padding-bottom: 20px;
+}
+.overlay .card-modal .due-date-container a.due-date {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 3px;
+  background-color: #e2e4e6;
+  color: #8c8c8c;
+}
+.overlay .card-modal .due-date-container a.due-date:hover {
+  background-color: #d6dadc;
+  color: #4d4d4d;
+}
+.overlay .card-modal .description {
+  clear: both;
+}
+.overlay .card-modal .description a.edit-description {
+  color: inherit;
+}
+.overlay .card-modal .description a.edit-description:hover {
+  color: #4d4d4d;
+}
+.overlay .card-modal a.edit-description.empty {
+  display: block;
+  padding: 5px;
+  border-radius: 3px;
+}
+.overlay .card-modal a.edit-description.empty:hover {
+  background-color: #d1d6d9;
+}
+.overlay .card-modal a.edit-description.empty .whitespace {
+  display: inline-block;
+  width: 3px;
+  text-decoration: none;
+}
+.overlay .card-modal textarea.description-input {
+  width: 100%;
+  height: 108px;
+  background: rgba(0,0,0,0.05);
+  border-color: #aaa;
+  box-shadow: inset 0 1px 8px rgba(0,0,0,0.15);
+  resize: none;
+  outline: none;
+}
+.overlay .card-modal .actions {
+  padding-top: 3px;
+}
+.overlay .card-modal .actions .cancel {
+  display: inline-block;
+  margin-left: 10px;
+}
+.overlay .card-modal textarea.comment-input {
+  width: 100%;
+  height: 75px;
+  resize: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.23);
+}
+.overlay .card-modal textarea.comment-input:focus {
+  outline: none;
+  border: inherit;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.33);
+}
+.overlay .card-modal .comments li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e4e6;
+}
+.overlay .card-modal .comments li:last-child {
+  border-bottom: none;
+}
+.overlay .card-modal .comments li h4 {
+  padding-bottom: 8px;
+  color: #4d4d4d;
+  font-weight: 700;
+}
+.overlay .card-modal .comments li p {
+  display: inline-block;
+  padding: 10px;
+  background-color: #fff;
+  color: #4d4d4d;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.23);
+}
+.overlay .card-modal .comments li footer {
+  padding-top: 10px;
+  font-size: 12px;
+}
+.overlay .card-modal aside {
+  float: left;
+  width: 30%;
+  padding: 30px 0 0 15px;
+}
+.overlay .card-modal aside section {
+  padding: 0 10px 20px 0;
+}
+.overlay .card-modal aside section li {
+  position: relative;
+  padding: 0 0 8px 0;
+}
+.overlay .card-modal aside section li a.btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 7px;
+  background-color: #fff;
+  border: 1px solid #e2e4e6;
+  border-bottom-color: #cdd2d4;
+  color: #444;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.overlay .card-modal aside section li a.btn i {
+  color: #a5a7a8;
+  padding-right: 5px;
+}
+.overlay .card-modal aside section li a.btn i.check {
+  float: right;
+  padding: 2px 4px;
+  color: #fff;
+  background-color: #61bd4f;
+  border-radius: 3px;
+}
+.overlay .card-modal aside section li a.btn:hover {
+  background-color: #298fca;
+  color: #fff;
+  border-color: #298fca #298fca #026aa7;
+}
+.overlay .card-modal aside section li a.btn:hover i {
+  color: inherit;
+}
+.overlay .card-modal aside section li a.btn:hover i.check {
+  background-color: rgba(255,255,255,0.3);
+}
+.pop-over {
+  position: absolute;
+  width: 300px;
+  padding: 5px;
+  z-index: 200;
+  background-color: #fff;
+  color: #8c8c8c;
+  border-radius: 3px;
+  border: 1px solid #d6dadc;
+  border-bottom-color: #c4c9cc;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+}
+.pop-over header {
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #d6dadc;
+}
+.pop-over .back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 8px;
+  font-size: 16px;
+  text-shadow: unset;
+  opacity: 0.5;
+}
+.pop-over .back:hover {
+  opacity: 0.9;
+}
+.pop-over .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px;
+  font-size: 16px;
+  text-shadow: unset;
+  opacity: 0.5;
+}
+.pop-over .close:hover {
+  opacity: 0.9;
+}
+.pop-over.date dl {
+  float: left;
+  width: 50%;
+}
+.pop-over.date dl:first-child {
+  padding-right: 10px;
+}
+.pop-over.date dl dt {
+  padding-top: 8px;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+.pop-over.date dl dd {
+  padding: 5px 0 15px 0;
+}
+.pop-over.date dl dd input {
+  width: 100%;
+  padding: 7px;
+  background-color: #e2e4e6;
+  border-radius: 3px;
+  border: 1px solid #cdd2d4;
+}
+.pop-over.date dl dd input:focus {
+  background-color: #fff;
+}
+.pop-over.date .actions .btn {
+  width: auto;
+}
+.pop-over.date .actions .btn-success {
+  float: left;
+}
+.pop-over.date .actions .btn-warning {
+  padding: 5px 15px;
+  margin-bottom: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 #3f6f21;
+  border: none;
+  text-decoration: none;
+  color: #b04632;
+  background: linear-gradient(to bottom, #d6dadc 0, #cdd2d4 100%);
+  float: right;
+}
+.pop-over.date .actions .btn-warning:disabled,
+.pop-over.date .actions .btn-warning:disabled:hover {
+  background: none;
+  background-color: #e2e4e6;
+  box-shadow: none;
+  color: #8c8c8c;
+  cursor: default;
+  font-weight: 400;
+  border: none;
+}
+.pop-over.date .actions .btn-warning:hover {
+  background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
+  box-shadow: 0 1px 0 #4d4d4d;
+  color: #fff;
+}
+.pop-over#labels-modal dl dt {
+  padding-top: 8px;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+.pop-over#labels-modal dl dd {
+  padding: 5px 0 15px 0;
+}
+.pop-over#labels-modal dl dd input {
+  width: 100%;
+  padding: 7px;
+  background-color: #e2e4e6;
+  border-radius: 3px;
+  border: 1px solid #cdd2d4;
+}
+.pop-over#labels-modal dl dd input:focus {
+  background-color: #fff;
+}
+.pop-over#labels-modal ul {
+  padding: 5px 0;
+}
+.pop-over#labels-modal ul li {
+  padding: 4px 0 0 0;
+}
+.pop-over#labels-modal ul li .label {
+  position: relative;
+  float: left;
+  width: 250px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 3px;
+  color: #fff;
+}
+.pop-over#labels-modal ul li .label .check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.pop-over#labels-modal ul li .edit {
+  float: right;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  padding: 9px 10px;
+}
+.pop-over#labels-modal ul li .edit:hover {
+  color: #111;
+  background-color: #d6dadc;
+}
+.pop-over#labels-modal ul li:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.pop-over#labels-modal a.create-label {
+  display: block;
+  padding: 5px;
+  color: inherit;
+  border-radius: 3px;
+}
+.pop-over#labels-modal a.create-label:hover {
+  background-color: #d1d6d9;
+  color: #4d4d4d;
+}
+.pop-over#labels-modal .color-palette li.color {
+  float: left;
+  position: relative;
+  width: 45px;
+  height: 35px;
+  padding: 0;
+  margin: 0 10px 10px 0;
+  border-radius: 3px;
+}
+.pop-over#labels-modal .color-palette li.color.checked:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 11px;
+  left: 16px;
+  color: #fff;
+}
+.pop-over#labels-modal .actions .btn {
+  width: auto;
+}
+.pop-over#labels-modal .actions .btn-success {
+  float: left;
+}
+.pop-over#labels-modal .actions .btn-warning {
+  padding: 5px 15px;
+  margin-bottom: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 #3f6f21;
+  border: none;
+  text-decoration: none;
+  color: #b04632;
+  background: linear-gradient(to bottom, #d6dadc 0, #cdd2d4 100%);
+  float: right;
+}
+.pop-over#labels-modal .actions .btn-warning:disabled,
+.pop-over#labels-modal .actions .btn-warning:disabled:hover {
+  background: none;
+  background-color: #e2e4e6;
+  box-shadow: none;
+  color: #8c8c8c;
+  cursor: default;
+  font-weight: 400;
+  border: none;
+}
+.pop-over#labels-modal .actions .btn-warning:hover {
+  background: linear-gradient(to bottom, #cf513d 0, #b04632 100%);
+  box-shadow: 0 1px 0 #4d4d4d;
+  color: #fff;
+}
+.green {
+  background-color: #61bd4f;
+}
+.yellow {
+  background-color: #f2d600;
+}
+.orange {
+  background-color: #ffab4a;
+}
+.red {
+  background-color: #eb5a46;
+}
+.purple {
+  background-color: #c377e0;
+}
+.blue {
+  background-color: #0079bf;
+}
+.sky {
+  background-color: #00c2e0;
+}
+.lime {
+  background-color: #51e898;
+}
+.pink {
+  background-color: #ff80ce;
+}
+.black {
+  background-color: #4d4d4d;
+}
+.ui-datepicker,
+.ui-widget-content,
+.ui-widget.ui-widget-content {
+  padding: 10px;
+  width: 100%;
+  border: none;
+}
+.ui-datepicker .ui-widget-header,
+.ui-widget-content .ui-widget-header,
+.ui-widget.ui-widget-content .ui-widget-header {
+  border: none;
+  background: #fff;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-next span.ui-icon,
+.ui-widget-content .ui-widget-header .ui-datepicker-next span.ui-icon,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-next span.ui-icon,
+.ui-datepicker .ui-widget-header .ui-datepicker-prev span.ui-icon,
+.ui-widget-content .ui-widget-header .ui-datepicker-prev span.ui-icon,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-prev span.ui-icon {
+  text-decoration: underline;
+  width: auto;
+  text-indent: 0;
+  color: #8c8c8c;
+  background-image: none;
+  font-weight: normal;
+  cursor: pointer;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-next-hover,
+.ui-widget-content .ui-widget-header .ui-datepicker-next-hover,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-next-hover,
+.ui-datepicker .ui-widget-header .ui-datepicker-prev-hover,
+.ui-widget-content .ui-widget-header .ui-datepicker-prev-hover,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-prev-hover {
+  top: 2px;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-next-hover,
+.ui-widget-content .ui-widget-header .ui-datepicker-next-hover,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-next-hover {
+  right: 2px;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-prev-hover,
+.ui-widget-content .ui-widget-header .ui-datepicker-prev-hover,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-prev-hover {
+  left: 2px;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-month,
+.ui-widget-content .ui-widget-header .ui-datepicker-month,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-month,
+.ui-datepicker .ui-widget-header .ui-datepicker-year,
+.ui-widget-content .ui-widget-header .ui-datepicker-year,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-year {
+  width: 30%;
+}
+.ui-datepicker .ui-widget-header .ui-datepicker-year,
+.ui-widget-content .ui-widget-header .ui-datepicker-year,
+.ui-widget.ui-widget-content .ui-widget-header .ui-datepicker-year {
+  margin-left: 10px;
+}

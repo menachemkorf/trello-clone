@@ -1,0 +1,28 @@
+<header>
+  <div class="close">
+    <i class="fa fa-times"></i>
+  </div>
+  <p>Move Card</p>
+</header>
+<form>
+  <fieldset>
+    <select name="lists" id="lists">
+      {{#each lists}}
+        <option value="{{id}}"
+        {{#if selected}}
+          selected
+        {{/if}}
+        >{{title}}</option>
+      {{/each}}
+    </select>
+
+    <select name="positions" id="positions">
+      {{#each positions}}
+        <option value="{{.}}">position {{.}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+  <div class="actions">
+    <input type="submit" name="" class="btn btn-success" value="Move">
+  </div>
+</form>

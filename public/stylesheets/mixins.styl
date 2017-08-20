@@ -1,0 +1,188 @@
+colors = {
+  body-bg: #00aecc,
+  body-text: #f6f6f6,
+  header-bg: rgba(0,0,0,.15),
+  header-fields-bg: rgba(255,255,255,.3),
+  header-fields-bg-hover: rgba(255,255,255,.4),
+  header-fields-text-hover: #fff,
+  col-bg: #e2e4e6,
+  col-text: #4d4d4d,
+  card-bg: #fff,
+  modal-text: #a5a7a8,
+  modal-bg: #edeff0
+}
+
+headerButton()
+  width: 30px;
+  height: 30px;
+  background-color: colors.header-fields-bg
+  border-radius: 3px
+  cursor: pointer
+  i
+    padding: 7px 8px
+    font-weight: 700
+  &.active
+    background-color: #cc0000
+    &:hover
+      background-color: lighten(#cc0000, 5)
+  &:hover
+    background-color: colors.header-fields-bg-hover
+    color: colors.header-fields-text-hover
+
+
+
+button()
+  padding: 5px 15px
+  margin-bottom: 1px
+  border-radius: 3px
+  cursor: pointer
+  box-shadow: 0 1px 0 #3F6F21;
+  border: none
+  text-decoration: none
+  &:disabled,
+  &:disabled:hover
+    background: none
+    background-color: #E2E4E6;
+    box-shadow: none;
+    color: #8c8c8c;
+    cursor: default;
+    font-weight: 400;
+    border: none;
+
+successButton()
+  button()
+  background: linear-gradient(to bottom, #61BD4F 0, #5AAC44 100%);
+  color: #fff;
+  &:hover
+    background: linear-gradient(to bottom, darken(#61BD4F, 5)  0, darken(#5AAC44, 5) 100%);
+
+warningButton()
+  button()
+  color: #B04632;
+  background: linear-gradient(to bottom,#D6DADC 0,#CDD2D4 100%);
+  &:hover
+    background: linear-gradient(to bottom,#CF513D 0,#B04632 100%);
+    box-shadow: 0 1px 0 #4d4d4d;
+    color: #fff;
+
+col()
+  vertical-align: top
+  display: inline-block
+  width: 270px
+  padding: 0
+  margin: 0 5px
+  background: colors.col-bg
+  color: colors.col-text
+  border-radius: 5px
+  h2
+    margin: 0
+    padding: 10px
+    font-size: 14px
+    font-weight: 700
+
+card()
+  margin: 0 10px 10px 10px
+  background-color: colors.card-bg
+  border-bottom: 1px solid #ccc
+  border-radius: 3px
+  a.card
+    position: relative
+    display: block
+    padding: 7px
+    cursor: pointer
+    border-radius: 3px
+    color: inherit
+    text-decoration: none
+    .edit-card-title
+      display: none
+    ul.labels
+      white-space: normal
+      li
+        display: inline-block
+        width: 40px
+        height: 8px
+        margin: 0 3px 5px 0;
+        border-radius: 3px;
+    .badge
+      display: inline-block
+      padding: 8px 8px 0 0
+      color: colors.modal-text
+    &:hover
+      color: inherit
+      text-decoration: none
+      background-color: darken(colors.card-bg, 5)
+      & .edit-card-title
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        padding: 5px
+        margin: 2px
+        color: #999
+        border-radius: 3px
+        &:hover
+          color: #000
+          background-color: darken(colors.card-bg, 10)
+
+actions()
+  padding-top: 3px
+  .cancel
+    display: inline-block
+    margin-left: 10px
+
+popOver()
+  position: absolute;
+  width: 300px;
+  padding: 5px;
+  z-index: 200;
+  background-color: #fff;
+  color: #8c8c8c;
+  border-radius: 3px;
+  border: 1px solid #D6DADC;
+  border-bottom-color: #C4C9CC;
+  box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  header
+    text-align: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #D6DADC;
+  .back
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8px;
+    font-size: 16px;
+    text-shadow: unset;
+    opacity: .5;
+    &:hover
+      opacity: .9
+  .close
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    font-size: 16px;
+    text-shadow: unset;
+    opacity: .5;
+    &:hover
+      opacity: .9
+
+
+
+
+
+
+// headerInput()
+//   padding: 7px
+//   font: normal 14px "lato", sans-serif
+//   background: rgba(255,255,255,.3)
+//   border: none
+//   border-radius: 3px
+//   appearance()
+//   &:focus
+//     background: #fff
+
+// appearance()
+//   appearance: none
+//   -moz-appearance: none
+//   -webkit-appearance: none
+

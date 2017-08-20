@@ -1,0 +1,536 @@
+@import "whitespace-reset.css"
+@import "mixins"
+
+*
+  box-sizing: border-box
+
+body
+  font: normal 14px Helvetica, Arial, sans-serif
+  background-color: colors.body-bg
+  color: colors.body-text
+  min-height: 100vh
+
+body > header
+  padding: 5px
+  background-color: colors.header-bg
+  &:after
+    content: ""
+    display: block
+    clear: both
+  .search
+    float: left
+    position: relative
+    dl
+      input
+        padding: 7px
+        font: normal 14px "lato", sans-serif
+        background: colors.header-fields-bg
+        color: colors.header-fields-text-hover
+        border-radius: 3px
+        border: none
+        &:hover
+          background-color: colors.header-fields-bg-hover
+      dd
+        position: absolute
+        top: 0
+        right: 0
+        padding: 5px
+    .search-results
+      position: absolute
+      top: 35px
+      width: 200px
+      min-height: 114px;
+      padding: 7px
+      border-radius: 3px
+      background-color: colors.modal-bg
+      color: colors.col-text
+      z-index: 10
+      h2
+        padding: 0 0 10px 0
+        color: colors.col-text
+      li.card
+        card()
+        margin: 0 0 5px 0
+  .actions
+    float: right
+    .btn-header
+      headerButton()
+      &.notifications
+        position: relative
+        .notifications-results
+          position: absolute
+          top: 35px
+          right: 0
+          width: 200px
+          min-height: 114px;
+          padding: 7px
+          border-radius: 3px
+          background-color: colors.modal-bg
+          color: colors.col-text
+          z-index: 10
+          h2
+            padding: 0 0 10px 0
+            color: colors.col-text
+          li.card
+            card()
+            margin: 0 0 5px 0
+
+main
+  padding: 20px 10px
+  white-space: nowrap;
+  .col
+    col()
+    > ul
+      padding-bottom: 5px
+      > li.card
+        card()
+      > li:last-child
+        margin-bottom: 0
+      > li.sortable-placeholder
+        card()
+        background-color: darken(#fff, 20)
+    > p
+      a.add
+          display: block
+          padding: 10px
+          color: #8c8c8c
+          text-decoration: none
+          &:hover
+            text-decoration: underline
+            color: colors.col-text
+            background-color: darken(#E2E4E6, 5)
+            border-bottom-left-radius: 5px
+            border-bottom-right-radius: 5px
+      form
+        textarea
+          width: 250px
+          height: 54px
+          resize: vertical
+          margin: 0 10px 5px 10px
+          background-color: colors.card-bg
+          border: none
+          border-bottom: 1px solid #ccc
+          border-radius: 3px
+          &:focus
+            border: none
+            outline: none
+        .actions
+          padding: 0 0 10px 10px
+          actions()
+
+
+  .col.add-list
+    background: colors.header-bg
+    a.add
+      display: block
+      padding: 12px 10px
+      color: rgba(255,255,255,.7)
+      cursor: pointer
+      text-decoration: none
+      &:hover
+        background-color: darken(colors.header-bg, 5)
+        border-radius: 3px
+
+.col.add-list form
+  width: 100%
+  padding: 3px
+  background-color: colors.col-bg
+  color: #8c8c8c
+  border-radius: 3px
+  input[type="text"]
+    width: 100%
+    padding: 7px
+    background: rgba(0, 0, 0, .05)
+    border-color: #aaa
+    border: 1px solid #cdd2d4
+    border-radius: 3px
+    box-shadow: inset 0 1px 8px rgba(0, 0, 0, .15)
+    &:focus
+      outline: none
+  .actions
+    actions()
+
+
+.btn-success
+  successButton()
+
+.cancel
+  color: colors.col-text
+  opacity: .5
+  &:hover
+    opacity: .9
+
+
+.overlay
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: rgba(0,0,0,.6)
+  .quick-edit
+    position: absolute
+    width: 250px
+    form
+      width: 100%
+      textarea
+        width: 100%
+        height: 150px
+        padding: 7px
+        border-radius: 3px
+  .card-modal
+    position: absolute
+    top: 50px
+    left: 50%
+    width: 650px
+    margin-left: -325px
+    background-color: colors.modal-bg
+    border-radius: 3px
+    color: colors.modal-text
+    .close
+      float: right
+      padding-right: 3px
+      cursor: pointer
+      &:hover
+        color: darken(colors.modal-text, 10)
+    .card-modal-main
+      width: 70%
+      float: left
+      padding: 10px
+      section
+        padding: 0 0 30px 30px;
+        .icon-container
+          position: absolute;
+          left: 10px;
+          font-size: 20px;
+    textarea.title
+      height: 30px;
+      width: 100%;
+      padding: 5px 3px;
+      margin-top: -5px;
+      margin-bottom: 15px;
+      background: transparent;
+      border: none;
+      border-radius: 3px;
+      resize: none;
+      box-shadow: none;
+      color: colors.col-text;
+      font-size: 18px;
+      font-weight: 700;
+      &:focus
+        background-color: rgba(255,255,255,.9);
+        outline: none;
+    h2
+      padding-bottom: 5px
+      color: colors.col-text;
+      font-size: 18px;
+      font-weight: 700;
+    h3
+      padding: 0 0 5px 0;
+      color: #8c8c8c;
+      font-size: 14px;
+      font-weight: 400
+    .labels-container
+      float: left
+      padding: 0 20px 0 0
+      ul
+        overflow: hidden
+        li
+          float: left
+          padding: 0 5px 5px 0
+          a
+            display: block
+            min-height: 30px
+            min-width: 40px
+            padding: 8px 10px;
+            color: #fff
+            text-decoration: none
+            border-radius: 3px
+            font-size: 12px;
+            font-weight: 400;
+          a.add-label
+            min-width: unset
+            width: 30px
+            background-color: #E2E4E6
+            color: #8c8c8c
+            &:hover
+              background-color: #D6DADC;
+              color: colors.col-text
+    .due-date-container
+      float: left
+      position: relative
+      padding-bottom: 20px
+      a.due-date
+        display: block
+        padding: 8px 10px;
+        border-radius: 3px
+        background-color: #E2E4E6
+        color: #8c8c8c
+        &:hover
+          background-color: #D6DADC;
+          color: colors.col-text
+    .description
+      clear: both
+      a.edit-description
+        color: inherit
+        &:hover
+          color: colors.col-text
+    a.edit-description.empty
+      display: block
+      padding: 5px
+      border-radius: 3px
+      &:hover
+        background-color: darken(colors.modal-bg, 10)
+      .whitespace
+        display: inline-block;
+        width: 3px;
+        text-decoration: none;
+    textarea.description-input
+      width: 100%
+      height: 108px
+      background: rgba(0,0,0,.05);
+      border-color: #aaa;
+      box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
+      resize: none;
+      outline: none;
+    .actions
+      actions()
+    textarea.comment-input
+      width: 100%
+      height: 75px
+      resize: none;
+      border: none
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.23);
+      &:focus
+        outline: none;
+        border: inherit;
+        box-shadow: 0 1px 3px rgba(0,0,0,.33);
+    .comments
+      li
+        padding: 10px 0
+        border-bottom: 1px solid #E2E4E6
+        &:last-child
+          border-bottom: none
+        h4
+          padding-bottom: 8px;
+          color: #4d4d4d;
+          font-weight: 700;
+        p
+          display: inline-block;
+          padding: 10px;
+          background-color: #fff;
+          color: #4d4d4d;
+          border-radius: 3px;
+          box-shadow: 0 1px 2px rgba(0,0,0,.23);
+        footer
+          padding-top: 10px;
+          font-size: 12px;
+    aside
+      float: left;
+      width: 30%;
+      padding: 30px 0 0 15px;
+      section
+        padding: 0 10px 20px 0;
+        li
+          position: relative;
+          padding: 0 0 8px 0;
+          a.btn
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 7px;
+            background-color: #fff;
+            border: 1px solid #e2e4e6;
+            border-bottom-color: #cdd2d4;
+            color: #444;
+            font-weight: 700;
+            border-radius: 4px;
+            text-decoration: none
+            i
+              color: colors.modal-text
+              padding-right: 5px
+            i.check
+              float: right
+              padding: 2px 4px
+              color: #fff
+              background-color: #61BD4F
+              border-radius: 3px
+            &:hover
+              background-color: #298FCA;
+              color: #fff;
+              border-color: #298FCA #298FCA #026AA7;
+              i
+                color: inherit
+              i.check
+                background-color: rgba(255,255,255,.3);
+
+
+.pop-over
+  popOver()
+  &.date
+    dl
+      float: left;
+      width: 50%;
+      &:first-child
+        padding-right: 10px
+      dt
+        padding-top: 8px
+        font-weight: 700
+        color: colors.col-text
+      dd
+        padding: 5px 0 15px 0
+        input
+          width: 100%
+          padding: 7px
+          background-color: #E2E4E6
+          border-radius: 3px
+          border: 1px solid #CDD2D4
+          &:focus
+            background-color: #fff
+    .actions
+      .btn
+        width: auto
+      .btn-success
+        float: left
+      .btn-warning
+        warningButton()
+        float: right
+  &#labels-modal
+    dl
+      dt
+        padding-top: 8px
+        font-weight: 700
+        color: colors.col-text
+      dd
+        padding: 5px 0 15px 0
+        input
+          width: 100%
+          padding: 7px
+          background-color: #E2E4E6
+          border-radius: 3px
+          border: 1px solid #CDD2D4
+          &:focus
+            background-color: #fff
+    ul
+      padding: 5px 0
+      li
+        padding: 4px 0 0 0
+        .label
+          position: relative
+          float: left
+          width: 250px
+          height: 32px
+          padding: 8px
+          border-radius: 3px
+          color: #fff
+          .check
+            position: absolute
+            top: 8px
+            right: 8px
+        .edit
+          float: right
+          width: 32px
+          height: 32px
+          border-radius: 3px
+          padding: 9px 10px
+          &:hover
+            color: #111
+            background-color: #D6DADC
+        &:after
+          content: ""
+          display: block
+          clear: both
+    a.create-label
+      display: block
+      padding: 5px
+      color: inherit
+      border-radius: 3px
+      &:hover
+        background-color: darken(colors.modal-bg, 10)
+        color: colors.col-text
+    .color-palette
+      li.color
+        float: left
+        position: relative
+        width: 45px
+        height: 35px
+        padding: 0
+        margin: 0 10px 10px 0
+        border-radius: 3px
+        &.checked:before
+          content: "\f00c"
+          font-family: FontAwesome
+          position: absolute
+          top: 11px
+          left: 16px
+          color: #fff
+    .actions
+      .btn
+        width: auto
+      .btn-success
+        float: left
+      .btn-warning
+        warningButton()
+        float: right
+
+.green
+  background-color: #61BD4F
+.yellow
+  background-color: #F2D600
+.orange
+  background-color: #FFAB4A
+.red
+  background-color: #EB5A46
+.purple
+  background-color: #C377E0
+.blue
+  background-color: #0079BF
+.sky
+  background-color: #00C2E0
+.lime
+  background-color: #51E898
+.pink
+  background-color: #FF80CE
+.black
+  background-color: #4d4d4d
+
+
+
+// some overrides to the jquery theme
+.ui-datepicker
+.ui-widget-content,
+.ui-widget.ui-widget-content
+  padding: 10px;
+  width: 100%;
+  border: none
+  .ui-widget-header
+    border: none
+    background: #fff;
+    .ui-datepicker-next,
+    .ui-datepicker-prev
+      span.ui-icon
+        text-decoration: underline
+        width: auto
+        text-indent: 0
+        color: #8c8c8c;
+        background-image: none
+        font-weight: normal
+        cursor: pointer
+    .ui-datepicker-next-hover,
+    .ui-datepicker-prev-hover
+      top: 2px
+      border: none
+      background-color: transparent
+      color: inherit
+    .ui-datepicker-next-hover
+      right: 2px
+    .ui-datepicker-prev-hover
+      left: 2px
+    .ui-datepicker-month,
+    .ui-datepicker-year
+      width: 30%
+    .ui-datepicker-year
+      margin-left: 10px
+
+

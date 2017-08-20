@@ -1,0 +1,39 @@
+include /_mixins
+
+doctype html
+html
+  head
+    title= title
+
+    +stylesheet_link_tag('vendor')
+    +stylesheet_link_tag('application')
+    +javascript_include_tag('vendor/all')
+    +javascript_include_tag('handlebars_templates')
+    +javascript_include_tag('handlebars_helpers')
+    script(src="https://use.fontawesome.com/87cc976b51.js")
+  body
+    header
+      .search
+        dl
+          dt
+            input(type="text")
+          dd
+            i.fa.fa-search
+      .actions
+        .btn.btn-header.notifications
+          i.fa.fa-bell-o
+    main
+    block content
+
+    script(type="text/javascript").
+      var lists = !{JSON.stringify(listsJSON)};
+      var cards = !{JSON.stringify(cardsJSON)};
+      var colors = !{JSON.stringify(colorsJSON)};
+      var labels = !{JSON.stringify(labelsJSON)};
+
+
+    +javascript_include_tag('models/list', 'models/card', 'models/label')
+    +javascript_include_tag('collections/lists', 'collections/cards', 'collections/labels')
+    +javascript_include_tag('views/main', 'views/list', 'views/add_list', 'views/card', 'views/add_card', 'views/card_details', 'views/edit_due_date', 'views/move_card', 'views/copy_card', 'views/edit_title', 'views/search','views/search_results_container', 'views/search_result', 'views/labels', 'views/label', 'views/notifications','views/notifications_container', 'views/notifications_result')
+    +javascript_include_tag('application')
+    +javascript_include_tag('router')

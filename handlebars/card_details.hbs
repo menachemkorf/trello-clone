@@ -1,0 +1,140 @@
+<div class="card-modal">
+  <div class="close">
+    <i class="fa fa-times fa-2x"></i>
+  </div>
+  <div class="card-modal-main">
+    <section>
+      <div class="icon-container">
+        <i class="fa fa-file-o"></i>
+      </div>
+      <div class="content">
+        <textarea class="title">{{card.title}}</textarea>
+        {{#if labels}}
+          <div class="labels-container">
+            <h3>Labels</h3>
+            <ul>
+            {{#each labels}}
+              <li>
+                <a href="#" class="{{color}}">{{title}}</a>
+              </li>
+            {{/each}}
+            <li>
+              <a href="#" class="add-label">
+                <i class="fa fa-plus"></i>
+              </a>
+            </li>
+            </ul>
+          </div>
+        {{/if}}
+        {{#if card.due}}
+          <div class="due-date-container">
+            <h3>Due Date</h3>
+            <a href="#" class="due-date">{{format_date_time card.due}}</a>
+          </div>
+        {{/if}}
+        <div class="description">
+        {{#if card.description}}
+          <h3>Description <a class="edit-description" href="#">Edit</a></h3>
+          <p>{{card.description}}</p>
+        {{else}}
+          <a href="#" class="edit-description empty">
+            <i class="fa fa-align-justify"></i>
+            <span class="whitespace"> </span>
+            Edit this description
+          </a>
+        {{/if}}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="icon-container">
+        <i class="fa fa-comment-o"></i>
+
+      </div>
+      <div class="content">
+        <h2>Add Comment</h2>
+        <form method="post" action="/" class="add-comment">
+          <fieldset>
+            <textarea class="form-control comment-input" placeholder="Write a comment..."></textarea>
+          </fieldset>
+
+          <input type="submit" class="btn btn-success" name="" value="Save" disabled>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="icon-container">
+        <i class="fa fa-align-left"></i>
+      </div>
+      <div class="content">
+        <h2>Activity</h2>
+        {{#if card.comments}}
+        <ul class="comments">
+          {{#each card.comments}}
+          <li>
+            <h4>John Doe</h4>
+            <p>{{body}}</p>
+            <footer>
+              <time>{{format_date_time time}}</time>
+            </footer>
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </div>
+    </section>
+  </div>
+  <aside>
+    <section>
+      <h2>Add</h2>
+      <ul>
+        <li>
+          <a href="#" class="btn btn-primary labels">
+            <i class="fa fa-tag"></i>
+            Labels
+          </a>
+        </li>
+        <li>
+          <a href="#" class="btn btn-primary due-date">
+            <i class="fa fa-clock-o"></i>
+            Due Date
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Actions</h2>
+      <ul>
+        <li>
+          <a href="#" class="btn btn-primary move">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            Move
+          </a>
+        </li>
+        <li>
+          <a href="#" class="btn btn-primary copy">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            Copy
+          </a>
+        </li>
+        <li>
+          <a href="#" class="btn btn-primary subscribe">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+            Subscribe
+            {{#if card.subscribed}}
+            <i class="fa fa-check check" aria-hidden="true"></i>
+            {{/if}}
+          </a>
+        </li>
+        <li>
+          <a href="#" class="btn btn-primary archive">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            Archive
+          </a>
+        </li>
+      </ul>
+    </section>
+  </aside>
+</div>

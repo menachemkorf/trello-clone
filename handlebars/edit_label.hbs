@@ -1,0 +1,28 @@
+<header>
+  <div class="back">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+  <div class="close">
+    <i class="fa fa-times"></i>
+  </div>
+  <p>Change Label</p>
+</header>
+<form id="edit-label" data-id="{{label.id}}">
+  <fieldset>
+    <dl>
+      <dt><label for="label-title">Name</label></dt>
+      <dd><input type="text" name="label-title" id="label-title" value="{{label.title}}"></dd>
+    </dl>
+  </fieldset>
+  <fieldset>
+    <ul class="color-palette">
+    {{#each colors}}
+      <li class="color {{.}}" data-color="{{.}}"></li>
+    {{/each}}
+    </ul>
+  </fieldset>
+  <div class="actions">
+    <input type="submit" class="btn btn-success" value="Save">
+    <a href="" class="btn btn-warning delete">Delete</a>
+  </div>
+</form>

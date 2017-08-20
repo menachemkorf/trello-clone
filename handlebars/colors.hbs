@@ -1,0 +1,27 @@
+<header>
+  <div class="back">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+  <div class="close">
+    <i class="fa fa-times"></i>
+  </div>
+  <p>Create Label</p>
+</header>
+<form id="create-label">
+  <fieldset>
+    <dl>
+      <dt><label for="label-title">Name</label></dt>
+      <dd><input type="text" name="label-title" id="label-title"></dd>
+    </dl>
+  </fieldset>
+  <fieldset>
+    <ul class="color-palette">
+    {{#each colors}}
+      <li class="color {{.}}" data-color="{{.}}"></li>
+    {{/each}}
+    </ul>
+  </fieldset>
+  <div class="actions">
+    <input type="submit" class="btn btn-success" value="Create">
+  </div>
+</form>
